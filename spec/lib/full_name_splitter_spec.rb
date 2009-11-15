@@ -56,6 +56,14 @@ describe Incognito do
       "John, Quincy Adams"             => ["John",    "Quincy Adams"              ],
       "Ludwig Mies, van der Rohe"      => ["Ludwig Mies", "van der Rohe"          ],
       
+      # Test ignoring unnecessary whitespaces
+      "\t Ludwig  Mies\t van der Rohe "   => ["Ludwig", "Mies van der Rohe"       ],
+      "\t Ludwig  Mies,\t van  der Rohe " => ["Ludwig Mies", "van der Rohe"       ],
+      "\t Ludwig      "                   => ["Ludwig", nil                       ],
+      "  van  helsing "                   => [nil, "van helsing"                  ],
+      " , van  helsing "                  => [nil, "van helsing"                  ],
+      "\t Ludwig  Mies,\t van  der Rohe " => ["Ludwig Mies", "van der Rohe"       ],
+      
     }.
     
     each do |full_name, split_name|
