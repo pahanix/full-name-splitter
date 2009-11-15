@@ -1,7 +1,69 @@
 # requires full accessable first_name and last_name attributes
 module FullNameSplitter
-  
+
   PREFIXES = %w(de la du del dei della degli van der mc ben).freeze
+
+  class Splitter
+    
+    def initialize(full_name)
+      @full_name  = full_name
+      @first_name = []
+      @last_name  = []
+      split!
+    end
+
+    def split!
+      @units = @full_name.split(/\s+/)
+      while @unit = @units.shift do
+        if prefix? or with_apostrophe? or (first_name? and last_unit? and not initial?)
+          @last_name << @unit and break
+        else
+          @first_name << @unit
+        end
+      end
+      @last_name += @units
+
+      adjust_exceptions!
+    end
+
+    def first_name
+      @first_name.empty? ? nil : @first_name.join(' ')
+    end
+
+    def last_name
+      @last_name.empty? ? nil : @last_name.join(' ')
+    end
+
+    private
+
+    def prefix?
+      PREFIXES.include?(@unit.downcase)
+    end
+
+    # M or W.
+    def initial?
+      @unit =~ /^\w\.?$/
+    end
+
+    # O'Connor, d'Artagnan match
+    # Noda' doesn't match
+    def with_apostrophe?
+      @unit =~ /\w{1}'\w+/
+    end
+    
+    def last_unit?
+      @units.empty?
+    end
+    
+    def first_name?
+      not @first_name.empty?
+    end
+    
+    def adjust_exceptions!
+      # Adjusting exceptions like "Ludwig Mies van der Rohe" => ["Ludwig", "Mies van der Rohe"]
+      @last_name.unshift @first_name.pop if @last_name.join(' ') =~ /^van der/
+    end
+  end
   
   def full_name
     [first_name, last_name].compact.join(' ')
@@ -11,42 +73,12 @@ module FullNameSplitter
     self.first_name, self.last_name = split(name)
   end
   
+  private 
+  
   def split(name)
-    items = name.split(/\s+/)
-    first_name, last_name = [], []
-
-    while candidate = items.shift do
-      if prefix?(candidate) || name_with_apostrophe?(candidate) || !initial?(candidate) && !first_name.empty? && items.empty?
-        last_name << candidate and break
-      else
-        first_name << candidate
-      end
-    end
-
-    last_name += items
-
-    # Handling exceptions like "Ludwig Mies van der Rohe" => ["Ludwig", "Mies van der Rohe"]
-    last_name.unshift first_name.pop if last_name.join(' ') =~ /^van der/
-    
-    [first_name.join(' '), last_name.join(' ')]
+    splitter = Splitter.new(name)
+    [splitter.first_name, splitter.last_name]
   end
   
-  private
-  
-  def prefix?(candidate)
-    PREFIXES.include?(candidate.downcase)
-  end
-  
-  
-  def initial?(candidate) # W or W.
-    candidate.size == 1 || candidate.size == 2 && candidate[1..1] == '.'
-  end
-  
-  # O'Connor, d'Artagnan match
-  # Noda' doesn't match
-  def name_with_apostrophe?(candidate)
-    candidate =~ /\w{1}'\w+/
-  end
-  
-  module_function :split, :prefix?, :initial?, :name_with_apostrophe?
+  module_function :split
 end

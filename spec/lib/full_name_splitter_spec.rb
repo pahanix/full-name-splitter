@@ -34,13 +34,13 @@ describe Incognito do
       "John Quincy Adams"             => ["John Quincy",    "Adams"               ],
       
       "John Quincy"                   => ["John",           "Quincy"              ],
-      "George H. W."                  => ["George H. W.",   ""                    ],
-      "Van Helsing"                   => ["",               "Van Helsing"         ],
-      "d'Artagnan"                    => ["",               "d'Artagnan"          ],
-      "O'Connor"                      => ["",               "O'Connor"            ],
+      "George H. W."                  => ["George H. W.",   nil                   ],
+      "Van Helsing"                   => [nil,              "Van Helsing"         ],
+      "d'Artagnan"                    => [nil,              "d'Artagnan"          ],
+      "O'Connor"                      => [nil,              "O'Connor"            ],
       
-      "George"                        => ["George",         ""                    ],
-      "Kevin J. "                     => ["Kevin J.",       ""                    ],
+      "George"                        => ["George",         nil                   ],
+      "Kevin J. "                     => ["Kevin J.",       nil                   ],
       
       "Thomas G. Della Fave"          => ["Thomas G.",      "Della Fave"          ],
       "Anne du Bourg"                 => ["Anne",           "du Bourg"            ],

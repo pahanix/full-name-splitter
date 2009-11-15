@@ -4,6 +4,8 @@ If you include the module it requires attribute accessors first\_name and last\_
 
 For example
 
+    require 'full_name_splitter'
+    
     class Incognito
       include FullNameSplitter
       attr_accessor :first_name, :last_name
@@ -29,22 +31,23 @@ If full name isn't complete *FullNameSplitter* tries to split partially
 
     incognito = Incognito.new :full_name => "George W."
     incognito.first_name # => "George W."
-    incognito.last_name  # => ""
+    incognito.last_name  # => nil
 
     incognito = Incognito.new :full_name => "George"
     incognito.first_name # => "George"
-    incognito.last_name  # => ""
+    incognito.last_name  # => nil
 
     incognito = Incognito.new :full_name => "Van Helsing"
-    incognito.first_name # => ""
+    incognito.first_name # => nil
     incognito.last_name  # => "Van Helsing"
 
     incognito = Incognito.new :full_name => "d'Artagnan"
-    incognito.first_name # => ""
+    incognito.first_name # => nil
     incognito.last_name  # => "d'Artagnan"
 
 For other examples see _spec/lib/full\_name\_splitter\_spec.rb_
 
-Also you can user splitter directly by calling module function FullNameSplitter::split
+Also you can use splitter directly by calling module function FullNameSplitter::split
 
-    FullNameSplitter.split("Juan Martín de la Cruz Gómez") # => ["Juan Martín", "de la Cruz Gómez"]
+    FullNameSplitter.split("Juan Martín de la Cruz Gómez")  # => ["Juan Martín", "de la Cruz Gómez"]
+    FullNameSplitter.split("Ludwig Mies van der Rohe")      # => ["Ludwig", "Mies van der Rohe"]
