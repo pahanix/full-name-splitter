@@ -45,6 +45,6 @@ If full name isn't complete *FullNameSplitter* tries to split partially
 
 For other examples see _spec/lib/full\_name\_splitter\_spec.rb_
 
-Also you can user splitter directly by calling module function FullNameSplitter::split\_full\_name
+Also you can user splitter directly by calling module function FullNameSplitter::split
 
     FullNameSplitter.split("Juan Martín de la Cruz Gómez") # => ["Juan Martín", "de la Cruz Gómez"]
