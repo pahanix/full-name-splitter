@@ -8,10 +8,10 @@ module FullNameSplitter
   end
   
   def full_name=(name)
-    self.first_name, self.last_name = split_full_name(name)
+    self.first_name, self.last_name = split(name)
   end
   
-  def split_full_name(name)
+  def split(name)
     items = name.split(/\s+/)
     first_name, last_name = [], []
 
@@ -30,14 +30,13 @@ module FullNameSplitter
     
     [first_name.join(' '), last_name.join(' ')]
   end
-
-  module_function :split_full_name
   
   private
   
   def prefix?(candidate)
     PREFIXES.include?(candidate.downcase)
   end
+  
   
   def initial?(candidate) # W or W.
     candidate.size == 1 || candidate.size == 2 && candidate[1..1] == '.'
@@ -48,4 +47,6 @@ module FullNameSplitter
   def name_with_apostrophe?(candidate)
     candidate =~ /\w{1}'\w+/
   end
+  
+  module_function :split, :prefix?, :initial?, :name_with_apostrophe?
 end

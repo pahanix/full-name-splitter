@@ -57,6 +57,11 @@ describe Incognito do
         @incognito.full_name = full_name
         gum(@incognito.first_name, @incognito.last_name).should == gum(*split_name)
       end
+      
+      it "should split #{full_name} to '#{split_name.first}' and '#{split_name.last}' by calling as module function" do
+        FullNameSplitter.split(full_name).should == split_name
+      end
+      
     end
   end
 end

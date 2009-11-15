@@ -1,6 +1,6 @@
 *FullNameSplitter* splits full name into first and last name considering name prefixes and initials
 
-Requires attribute accessors first\_name and last\_name and adds #full\_name, #full\_name= to the class
+If you include the module it requires attribute accessors first\_name and last\_name and adds #full\_name, #full\_name= to the class
 
 For example
 
@@ -44,3 +44,7 @@ If full name isn't complete *FullNameSplitter* tries to split partially
     incognito.last_name  # => "d'Artagnan"
 
 For other examples see _spec/lib/full\_name\_splitter\_spec.rb_
+
+Also you can user splitter directly by calling module function FullNameSplitter::split\_full\_name
+
+    FullNameSplitter.split("Juan Martín de la Cruz Gómez") # => ["Juan Martín", "de la Cruz Gómez"]
