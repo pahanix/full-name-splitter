@@ -51,3 +51,8 @@ Also you can use splitter directly by calling module function FullNameSplitter::
 
     FullNameSplitter.split("Juan Martín de la Cruz Gómez")  # => ["Juan Martín", "de la Cruz Gómez"]
     FullNameSplitter.split("Ludwig Mies van der Rohe")      # => ["Ludwig", "Mies van der Rohe"]
+    
+If the lib can't split a name correctly, it is possible to split by comma
+
+    FullNameSplitter.split("John Quincy Adams")   # => ["John Quincy", "Adams"]
+    FullNameSplitter.split("John, Quincy Adams")  # => ["John", "Quincy Adams"]

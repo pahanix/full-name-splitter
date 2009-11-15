@@ -50,6 +50,12 @@ describe Incognito do
       # Exceptions?
       # the architect Ludwig Mies van der Rohe, from the West German city of Aachen, was originally Ludwig Mies;
       "Ludwig Mies van der Rohe"      => ["Ludwig",         "Mies van der Rohe"   ],
+      
+      # If comma is provided then split by comma
+      
+      "John, Quincy Adams"             => ["John",    "Quincy Adams"              ],
+      "Ludwig Mies, van der Rohe"      => ["Ludwig Mies", "van der Rohe"          ],
+      
     }.
     
     each do |full_name, split_name|

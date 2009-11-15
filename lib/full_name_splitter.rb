@@ -76,8 +76,12 @@ module FullNameSplitter
   private 
   
   def split(name)
-    splitter = Splitter.new(name)
-    [splitter.first_name, splitter.last_name]
+    if name.include?(',')
+      name.split(/\s*,\s*/, 2)
+    else
+      splitter = Splitter.new(name)
+      [splitter.first_name, splitter.last_name]
+    end
   end
   
   module_function :split
