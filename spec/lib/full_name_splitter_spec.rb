@@ -44,8 +44,20 @@ describe Incognito do
       
       "Thomas G. Della Fave"          => ["Thomas G.",      "Della Fave"          ],
       "Anne du Bourg"                 => ["Anne",           "du Bourg"            ],
-      "Juan Martín de la Cruz Gómez"  => ["Juan Martín",    "de la Cruz Gómez"    ],
       
+      # German
+      "Johann Wolfgang von Goethe"    => ["Johann Wolfgang", "von Goethe"         ],
+      
+      # Spanish-speaking countries
+      "Juan Martín de la Cruz Gómez"  => ["Juan Martín",    "de la Cruz Gómez"    ],
+      "Javier Reyes de la Barrera"    => ["Javier",         "Reyes de la Barrera" ],
+      "Rosa María Pérez Martínez Vda. de la Cruz" =>
+                                         ["Rosa María Pérez Martínez", 
+                                                            "Vda. de la Cruz"     ],
+      # Dutch
+      "Johan de heer Van Kampen"      => ["Johan",          "de heer Van Kampen"  ],
+      "Han Van De Casteele"           => ["Han",            "Van De Casteele"     ],
+      "Han Vande Casteele"            => ["Han",            "Vande Casteele"      ],
       
       # Exceptions?
       # the architect Ludwig Mies van der Rohe, from the West German city of Aachen, was originally Ludwig Mies;

@@ -1,7 +1,7 @@
 # requires full accessable first_name and last_name attributes
 module FullNameSplitter
 
-  PREFIXES = %w(de la du del dei della degli van der mc ben).freeze
+  PREFIXES = %w(de la du del dei vda. della degli van von der den heer ten ter vande vanden vander voor ver aan mc ben).freeze
 
   class Splitter
     
@@ -60,8 +60,16 @@ module FullNameSplitter
     end
     
     def adjust_exceptions!
-      # Adjusting exceptions like "Ludwig Mies van der Rohe" => ["Ludwig", "Mies van der Rohe"]
-      @last_name.unshift @first_name.pop if @last_name.join(' ') =~ /^van der/
+      return if @first_name.size <= 1
+      
+      # Adjusting exceptions like 
+      # "Ludwig Mies van der Rohe"      => ["Ludwig",         "Mies van der Rohe"   ]
+      # "Juan Martín de la Cruz Gómez"  => ["Juan Martín",    "de la Cruz Gómez"    ]
+      # "Javier Reyes de la Barrera"    => ["Javier",         "Reyes de la Barrera" ]
+      
+      if last_name =~ /^(van der|de la \w+$)/
+        @last_name.unshift @first_name.pop
+      end
     end
   end
   
