@@ -66,9 +66,13 @@ module FullNameSplitter
       # "Ludwig Mies van der Rohe"      => ["Ludwig",         "Mies van der Rohe"   ]
       # "Juan Martín de la Cruz Gómez"  => ["Juan Martín",    "de la Cruz Gómez"    ]
       # "Javier Reyes de la Barrera"    => ["Javier",         "Reyes de la Barrera" ]
-      
-      if last_name =~ /^(van der|de la \w+$)/
-        @last_name.unshift @first_name.pop
+      # Rosa María Pérez Martínez Vda. de la Cruz 
+      #                                 => ["Rosa María",     "Pérez Martínez Vda. de la Cruz"]
+      if last_name =~ /^(van der|(vda\. )?de la \w+$)/i
+        loop do
+          @last_name.unshift @first_name.pop
+          break if @first_name.size <= 2
+        end
       end
     end
   end
