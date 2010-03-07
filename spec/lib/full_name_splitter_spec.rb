@@ -8,13 +8,21 @@ end
 
 describe Incognito do
   describe "#full_name=" do
-    before(:each) do
-      @incognito = Incognito.new
-    end
+
+    #
+    # Environment
+    #
+
+    subject { Incognito.new }
 
     def gum(first, last)
       "[#{first}] + [#{last}]"
     end
+
+
+    #
+    # Examples
+    #
 
     {
       "John Smith"                    => ["John",           "Smith"               ],
@@ -80,8 +88,8 @@ describe Incognito do
 
     each do |full_name, split_name|
       it "should split #{full_name} to '#{split_name.first}' and '#{split_name.last}'" do
-        @incognito.full_name = full_name
-        gum(@incognito.first_name, @incognito.last_name).should == gum(*split_name)
+        subject.full_name = full_name
+        gum(subject.first_name, subject.last_name).should == gum(*split_name)
       end
 
       it "should split #{full_name} to '#{split_name.first}' and '#{split_name.last}' by calling as module function" do
