@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 # requires full accessable first_name and last_name attributes
 module FullNameSplitter
 
-  PREFIXES = %w(de la du del dei vda. della degli van von der den heer ten ter vande vanden vander voor ver aan mc ben).freeze
+  PREFIXES = %w(de da la du del dei vda. della degli delle van von der den heer ten ter vande vanden vander voor ver aan mc ben).freeze
 
   class Splitter
     

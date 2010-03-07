@@ -62,6 +62,13 @@ describe Incognito do
       "Javier Reyes de la Barrera"    => ["Javier",         "Reyes de la Barrera" ],
       "Rosa María Pérez Martínez Vda. de la Cruz" =>
                                          ["Rosa María",    "Pérez Martínez Vda. de la Cruz"],
+
+      # Italian
+      "Federica Pellegrini"           => ["Federica",       "Pellegrini"          ],
+      "Leonardo da Vinci"             => ["Leonardo",       "da Vinci"            ],
+      "Luca Delle Fave"               => ["Luca",           "Delle Fave"          ],
+      "Tomasso D'Arco"                => ["Tomasso",        "D'Arco"              ],
+
       # Dutch
       "Johan de heer Van Kampen"      => ["Johan",          "de heer Van Kampen"  ],
       "Han Van De Casteele"           => ["Han",            "Van De Casteele"     ],
