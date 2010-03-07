@@ -18,7 +18,7 @@ describe Incognito do
 
     {
       "John Smith"                    => ["John",           "Smith"               ],
-      
+
       "Kevin J. O'Connor"             => ["Kevin J.",       "O'Connor"            ],
       "Gabriel Van Helsing"           => ["Gabriel",        "Van Helsing"         ],
       "Pierre de Montesquiou"         => ["Pierre",         "de Montesquiou"      ],
@@ -33,22 +33,22 @@ describe Incognito do
       "James K. Polk"                 => ["James K.",       "Polk"                ],
       "William Henry Harrison"        => ["William Henry",  "Harrison"            ],
       "John Quincy Adams"             => ["John Quincy",    "Adams"               ],
-      
+
       "John Quincy"                   => ["John",           "Quincy"              ],
       "George H. W."                  => ["George H. W.",   nil                   ],
       "Van Helsing"                   => [nil,              "Van Helsing"         ],
       "d'Artagnan"                    => [nil,              "d'Artagnan"          ],
       "O'Connor"                      => [nil,              "O'Connor"            ],
-      
+
       "George"                        => ["George",         nil                   ],
       "Kevin J. "                     => ["Kevin J.",       nil                   ],
-      
+
       "Thomas G. Della Fave"          => ["Thomas G.",      "Della Fave"          ],
       "Anne du Bourg"                 => ["Anne",           "du Bourg"            ],
-      
+
       # German
       "Johann Wolfgang von Goethe"    => ["Johann Wolfgang", "von Goethe"         ],
-      
+
       # Spanish-speaking countries
       "Juan Martín de la Cruz Gómez"  => ["Juan Martín",    "de la Cruz Gómez"    ],
       "Javier Reyes de la Barrera"    => ["Javier",         "Reyes de la Barrera" ],
@@ -58,16 +58,16 @@ describe Incognito do
       "Johan de heer Van Kampen"      => ["Johan",          "de heer Van Kampen"  ],
       "Han Van De Casteele"           => ["Han",            "Van De Casteele"     ],
       "Han Vande Casteele"            => ["Han",            "Vande Casteele"      ],
-      
+
       # Exceptions?
       # the architect Ludwig Mies van der Rohe, from the West German city of Aachen, was originally Ludwig Mies;
       "Ludwig Mies van der Rohe"      => ["Ludwig",         "Mies van der Rohe"   ],
-      
+
       # If comma is provided then split by comma
-      
+
       "John, Quincy Adams"             => ["John",    "Quincy Adams"              ],
       "Ludwig Mies, van der Rohe"      => ["Ludwig Mies", "van der Rohe"          ],
-      
+
       # Test ignoring unnecessary whitespaces
       "\t Ludwig  Mies\t van der Rohe "   => ["Ludwig", "Mies van der Rohe"       ],
       "\t Ludwig  Mies,\t van  der Rohe " => ["Ludwig Mies", "van der Rohe"       ],
@@ -75,19 +75,19 @@ describe Incognito do
       "  van  helsing "                   => [nil, "van helsing"                  ],
       " , van  helsing "                  => [nil, "van helsing"                  ],
       "\t Ludwig  Mies,\t van  der Rohe " => ["Ludwig Mies", "van der Rohe"       ],
-      
+
     }.
-    
+
     each do |full_name, split_name|
       it "should split #{full_name} to '#{split_name.first}' and '#{split_name.last}'" do
         @incognito.full_name = full_name
         gum(@incognito.first_name, @incognito.last_name).should == gum(*split_name)
       end
-      
+
       it "should split #{full_name} to '#{split_name.first}' and '#{split_name.last}' by calling as module function" do
         FullNameSplitter.split(full_name).should == split_name
       end
-      
+
     end
   end
 end
