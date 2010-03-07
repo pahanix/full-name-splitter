@@ -66,7 +66,13 @@ describe Incognito do
       # Italian
       "Federica Pellegrini"           => ["Federica",       "Pellegrini"          ],
       "Leonardo da Vinci"             => ["Leonardo",       "da Vinci"            ],
+      # sounds like a fancy medival action movie star pseudonim
+      "Alberto Del Sole"              => ["Alberto",        "Del Sole"            ],
+      # horror movie star pseudonim?
+      "Adriano Dello Spavento"        => ["Adriano",        "Dello Spavento"      ],
       "Luca Delle Fave"               => ["Luca",           "Delle Fave"          ],
+      "Francesca Della Valle"         => ["Francesca",      "Della Valle"         ],
+      "Guido Delle Colonne"           => ["Guido",          "Delle Colonne"       ],
       "Tomasso D'Arco"                => ["Tomasso",        "D'Arco"              ],
 
       # Dutch
