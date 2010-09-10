@@ -20,6 +20,7 @@ begin
     gemspec.homepage = "http://github.com/zedlander/full-name-splitter"
     gemspec.authors = ["Pavel Gorbokon", "Trevor Creech"]
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
 end

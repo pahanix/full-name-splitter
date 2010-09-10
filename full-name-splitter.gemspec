@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{full-name-splitter}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pavel Gorbokon", "Trevor Creech"]
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "features/split.feature",
      "features/step_definitions/split_steps.rb",
      "features/support/env.rb",
+     "full-name-splitter.gemspec",
      "lib/full-name-splitter.rb",
      "spec/lib/full_name_splitter_spec.rb",
      "spec/spec.opts",
