@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{full-name-splitter}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Pavel Gorbokon", "Trevor Creech"]
-  s.date = %q{2010-09-10}
+  s.authors = ["Pavel Gorbokon", "contributors Michael S. Klishin and Trevor Creech"]
+  s.date = %q{2010-09-14}
   s.description = %q{}
-  s.email = %q{trevor@trevorcreech.com}
+  s.email = %q{pahanix@gmail.com}
   s.extra_rdoc_files = [
     "README.mdown"
   ]
@@ -29,14 +29,15 @@ Gem::Specification.new do |s|
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/zedlander/full-name-splitter}
+  s.homepage = %q{http://github.com/pahanix/full-name-splitter}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{*FullNameSplitter* splits full name into first and last name considering name prefixes and initials}
+  s.summary = %q{FullNameSplitter splits full name into first and last name considering name prefixes and initials}
   s.test_files = [
     "spec/lib/full_name_splitter_spec.rb",
-     "spec/spec_helper.rb"
+     "spec/spec_helper.rb",
+     "examples/generate_usernames.rb"
   ]
 
   if s.respond_to? :specification_version then
