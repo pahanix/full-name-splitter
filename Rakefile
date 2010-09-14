@@ -14,11 +14,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "full-name-splitter"
-    gemspec.summary = "*FullNameSplitter* splits full name into first and last name considering name prefixes and initials"
+    gemspec.summary = "FullNameSplitter splits full name into first and last name considering name prefixes and initials"
     gemspec.description = ""
-    gemspec.email = "trevor@trevorcreech.com"
-    gemspec.homepage = "http://github.com/zedlander/full-name-splitter"
-    gemspec.authors = ["Pavel Gorbokon", "Trevor Creech"]
+    gemspec.email = "pahanix@gmail.com"
+    gemspec.homepage = "http://github.com/pahanix/full-name-splitter"
+    gemspec.authors = ["Pavel Gorbokon", "contributors Michael S. Klishin and Trevor Creech"]
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
