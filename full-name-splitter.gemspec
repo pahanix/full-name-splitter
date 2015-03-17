@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
+  s.license = 'MIT'
   s.summary = %q{FullNameSplitter splits full name into first and last name considering name prefixes and initials}
   s.test_files = [
     "spec/lib/full-name-splitter_spec.rb",
