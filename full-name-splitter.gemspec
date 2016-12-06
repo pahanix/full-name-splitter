@@ -37,8 +37,7 @@ Gem::Specification.new do |s|
   s.summary = %q{FullNameSplitter splits full name into first and last name considering name prefixes and initials}
   s.test_files = [
     "spec/lib/full-name-splitter_spec.rb",
-     "spec/spec_helper.rb",
-     "examples/generate_usernames.rb"
+    "spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
